@@ -49,7 +49,7 @@
       + because it can result in indefinite value (see below)
       + TODO: check the connection to maximal/minimal stratification
       + Implementation wise, this means the derived predicates are delete-free: "/This implies that the order in which the rules are applied to a state does not matter (we can not "lose" any derived facts by deriving other facts first)./" , at page 6
-    + "apply the applicable rules in an arbitrary order until no new facts can be derived anymore." This means that tautologic derivation never happens (see below) , at page 6
+  + "apply the applicable rules in an arbitrary order until no new facts can be derived anymore." This means that tautologic derivation never happens (see below) , at page 6
 
 Now axioms look like
 
