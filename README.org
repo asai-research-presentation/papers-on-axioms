@@ -1,0 +1,11 @@
+
++ UCPOP User manual
+  
++ PDDL in AIPS 98 planning competition
+  + PDDL - The Planning Domain Defnition Language Version 1.2
+  + http://homepages.inf.ed.ac.uk/mfourman/tools/propplan/pddl.pdf
++ 
+
++ Axioms does not have a polynomial compilation
+  + In Defence of PDDL Axioms, Sylvie Thiébaux, Jörg Hoffmann, Bernhard Nebel, IJCAI 2003 and AIJ 2004
+  + https://www.sciencedirect.com/science/article/pii/S0004370205000810/pdf
