@@ -48,6 +48,10 @@
     + after converted to NNF, no axiom should depend on the negative axioms
       + because it can result in indefinite value (see below)
       + TODO: check the connection to maximal/minimal stratification
+      + Implementation wise, this means the derived predicates are delete-free: /"This implies that the order in which the rules are applied to a state does not matter (we can not "lose" any derived facts by deriving other facts first)."/
+      + "apply the applicable rules in an arbitrary order until no new facts can be derived anymore." This means that tautologic derivation is never achieved (see below)
+
+
 
 Now axioms look like
 
@@ -65,7 +69,7 @@ Indefinite value example
 	  (not (p ?x))
 #+end_src
 
-TODO: Is tautology treated as true?
+Is tautology treated as true? -> answer: no, it is instead treated as false since the body of this rule never evaluates to true
 
 #+begin_src lisp
 (:derived (p ?x)
