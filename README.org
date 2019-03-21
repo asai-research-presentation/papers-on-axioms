@@ -1,3 +1,4 @@
+* Old stuff
 
 + UCPOP User manual
   + http://aiweb.cs.washington.edu/ai/ucpop.html
@@ -6,14 +7,26 @@
 + PDDL in AIPS 98 planning competition
   + PDDL - The Planning Domain Defnition Language Version 1.2
   + http://homepages.inf.ed.ac.uk/mfourman/tools/propplan/pddl.pdf
-  + this one still uses =:axioms= to denote axioms
+  + this one still uses =:axiom= to denote axioms, and have different syntax 
   
+#+begin_src lisp
+(:axiom
+ :vars (?i - integer)
+ :context (bounded-int ?i 1 numthings)
+ :implies (thing ?i)))
+#+end_src
+
 + PDDL in AIPS 00 planning competition
   + https://helios.hud.ac.uk/scommv/IPC-14/repository/bacchus-unpublished-2000.pdf
   + This removes axioms
   + I can imagine the critism mentioned in the paper below
+    + For example, this work compiles axioms into actions
+    + Davidson, Marina, and Max Garagnani. "Pre-processing planning domains containing language axioms." Proc. UK PlanSIG workshop. 2002.
+    + https://www.geisteswissenschaften.fu-berlin.de/v/brainlang/Team/Unterseiten/Additional-Literature-M_-Garagnani/sig02.pdf
 
 + PDDL2.1 is about temporal constraint
+
+* Work on axioms and its semantics
 
 + Axioms do not have polynomial compilation, justifies its addition as a PDDL extension
   + In Defence of PDDL Axioms, Sylvie Thiébaux, Jörg Hoffmann, Bernhard Nebel, IJCAI 2003 and AIJ 2004
@@ -35,10 +48,28 @@
     + after converted to NNF, no axiom should depend on the negative axioms
       + TODO: check the connection to maximal/minimal stratification
 
+Now axioms look like
+
+#+begin_src lisp
+(:derived (above ?x - block ?y - block)
+	    (or (on ?x ?y)
+		      (exists (?z - block)
+			       (and (on ?x ?z) (above ?z ?y)))))
+#+end_src
+
+* Implementations
+
 + Implementation of axioms in Fast Downward
   + Helmert, Malte. "Concise finite-domain representations for PDDL planning tasks." Artificial Intelligence 173.5-6 (2009): 503-535.
   + https://www.sciencedirect.com/science/article/pii/S0004370208001926/pdf
   + TODO: does this use maximal/minimal ?
+
++ Implementation of axioms in model-based planners
+  + needs a special care
+  + Miura, Shuwa, and Alex Fukunaga. "Axioms in model-based planners." arXiv preprint arXiv:1703.03916 (2017).
+  + https://arxiv.org/pdf/1703.03916
+
+* Recent work on axioms
 
 + When compiling axioms into actions was inefficient, the opposite was also true
   + converting some predicates into axioms manually
