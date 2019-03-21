@@ -15,7 +15,7 @@
 
 + PDDL2.1 is about temporal constraint
 
-+ Axioms do not have polynomial compilation, justifies to incorpolate it as a PDDL extension
++ Axioms do not have polynomial compilation, justifies its addition as a PDDL extension
   + In Defence of PDDL Axioms, Sylvie Thiébaux, Jörg Hoffmann, Bernhard Nebel, IJCAI 2003 and AIJ 2004
   + https://www.sciencedirect.com/science/article/pii/S0004370205000810/pdf
   + Compiling axiom stratification into PDDL actions is very inefficient
@@ -28,6 +28,7 @@
 + PDDL2.2 now adds axioms
   + Edelkamp, Stefan, and Jörg Hoffmann. "PDDL2. 2: The language for the classical part of the 4th international planning competition." 4th International Planning Competition (IPC’04), at ICAPS’04 (2004).
   + https://courses.cs.washington.edu/courses/cse473/06sp/pddl2.2.pdf
+  + now in the name of =:derived= predicates
   + Added constraints:
     + no duplicated parameters
       + However, old domains treat duplicated parameters as implying equality
