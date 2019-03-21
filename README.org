@@ -46,6 +46,7 @@
     + no duplicated parameters
       + However, old domains treat duplicated parameters as implying equality
     + after converted to NNF, no axiom should depend on the negative axioms
+      + because it can result in indefinite value (see below)
       + TODO: check the connection to maximal/minimal stratification
 
 Now axioms look like
@@ -55,6 +56,20 @@ Now axioms look like
 	    (or (on ?x ?y)
 		      (exists (?z - block)
 			       (and (on ?x ?z) (above ?z ?y)))))
+#+end_src
+
+Indefinite value example
+
+#+begin_src lisp
+(:derived (p ?x)
+	  (not (p ?x))
+#+end_src
+
+TODO: Is tautology treated as true?
+
+#+begin_src lisp
+(:derived (p ?x)
+	  (p ?x))
 #+end_src
 
 * Implementations
