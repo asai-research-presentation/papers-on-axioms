@@ -1,11 +1,49 @@
 
 + UCPOP User manual
+  + http://aiweb.cs.washington.edu/ai/ucpop.html
+  + ftp://ftp.cs.washington.edu/tr/1993/09/UW-CSE-93-09-06.pdf
   
 + PDDL in AIPS 98 planning competition
   + PDDL - The Planning Domain Defnition Language Version 1.2
   + http://homepages.inf.ed.ac.uk/mfourman/tools/propplan/pddl.pdf
-+ 
+  + this one still uses =:axioms= to denote axioms
+  
++ PDDL in AIPS 00 planning competition
+  + https://helios.hud.ac.uk/scommv/IPC-14/repository/bacchus-unpublished-2000.pdf
+  + This removes axioms
+  + I can imagine the critism mentioned in the paper below
 
-+ Axioms does not have a polynomial compilation
++ PDDL2.1 is about temporal constraint
+
++ Axioms do not have polynomial compilation, justifies to incorpolate it as a PDDL extension
   + In Defence of PDDL Axioms, Sylvie Thiébaux, Jörg Hoffmann, Bernhard Nebel, IJCAI 2003 and AIJ 2004
   + https://www.sciencedirect.com/science/article/pii/S0004370205000810/pdf
+  + Compiling axiom stratification into PDDL actions is very inefficient
+  + Directly supporting axioms was proved to be very beneficial in terms of performance
+    + implementation is also simple
+  + Maximal / minimal stratification
+    + Maximal:
+    + Minimal:
+
++ PDDL2.2 now adds axioms
+  + Edelkamp, Stefan, and Jörg Hoffmann. "PDDL2. 2: The language for the classical part of the 4th international planning competition." 4th International Planning Competition (IPC’04), at ICAPS’04 (2004).
+  + https://courses.cs.washington.edu/courses/cse473/06sp/pddl2.2.pdf
+  + Added constraints:
+    + no duplicated parameters
+      + However, old domains treat duplicated parameters as implying equality
+    + after converted to NNF, no axiom should depend on the negative axioms
+      + TODO: check the connection to maximal/minimal stratification
+
++ Implementation of axioms in Fast Downward
+  + Helmert, Malte. "Concise finite-domain representations for PDDL planning tasks." Artificial Intelligence 173.5-6 (2009): 503-535.
+  + https://www.sciencedirect.com/science/article/pii/S0004370208001926/pdf
+  + TODO: does this use maximal/minimal ?
+
++ When compiling axioms into actions was inefficient, the opposite was also true
+  + converting some predicates into axioms manually
+  + Optimal Planning with Axioms, Franc Ivankovic and P@trik Haslum, IJCAI 2015
+  + https://www.aaai.org/ocs/index.php/IJCAI/IJCAI15/paper/viewPDFInterstitial/10971/10882
+
++ If so, then lets automatically find axioms
+  + Miura, Shuwa, and Alex Fukunaga. "Automatic extraction of axioms for planning." ICAPS 2017
+  + https://www.aaai.org/ocs/index.php/ICAPS/ICAPS17/paper/viewPDFInterstitial/15730/15108
